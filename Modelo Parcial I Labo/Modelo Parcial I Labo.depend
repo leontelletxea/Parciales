@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1589061517 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\instrumento.c
+	"instrumento.h"
+
+1588878746 c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\instrumento.h
+	<stdio.h>
+	<string.h>
+
+1589039730 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\main.c
+	<stdio.h>
+	<stdlib.h>
+	"musicoOrquestaInstrumento.h"
+
+1589060493 c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\musicoorquestainstrumento.h
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+
+1589037190 c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\orquesta.h
+	<stdio.h>
+	<string.h>
+
+1589034860 c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\musico.h
+	<stdio.h>
+	<string.h>
+
+1589062843 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\musico.c
+	"musico.h"
+
+1589229944 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\musicoorquestainstrumento.c
+	"musicoOrquestaInstrumento.h"
+
+1589132284 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo de parcial i\orquesta.c
+	"orquesta.h"
+
+1589061517 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\instrumento.c
+	"instrumento.h"
+
+1588878746 c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\instrumento.h
+	<stdio.h>
+	<string.h>
+
+1589039730 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"musicoOrquestaInstrumento.h"
+
+1589060493 c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\musicoorquestainstrumento.h
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+
+1589037190 c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\orquesta.h
+	<stdio.h>
+	<string.h>
+
+1589034860 c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\musico.h
+	<stdio.h>
+	<string.h>
+
+1589062843 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\musico.c
+	"musico.h"
+
+1589229944 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\musicoorquestainstrumento.c
+	"musicoOrquestaInstrumento.h"
+
+1589132284 source:c:\users\leon\desktop\programacion & labo i\parciales\modelo parcial i labo\orquesta.c
+	"orquesta.h"
+
