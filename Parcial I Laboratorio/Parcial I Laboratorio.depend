@@ -1,0 +1,104 @@
+# depslib dependency file v1.0
+1591707234 source:c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\cliente.c
+	"cliente.h"
+
+1591706957 c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\cliente.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1591707234 source:c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\clientemascota.c
+	"clienteMascota.h"
+
+1591706957 c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\clientemascota.h
+	"cliente.h"
+	"mascota.h"
+	"validar.h"
+
+1591706957 c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\mascota.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+
+1591706957 source:c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\mascota.c
+	"mascota.h"
+
+1591663469 source:c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clienteMascota.h"
+
+1590600657 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciallaboi\cliente.c
+	"cliente.h"
+
+1590597632 c:\users\leon\desktop\programacion & labo i\repositorios git\parciallaboi\cliente.h
+	<stdio.h>
+	<stdlib.h>
+
+1590682169 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciallaboi\clientemascota.c
+	"clienteMascota.h"
+
+1590681758 c:\users\leon\desktop\programacion & labo i\repositorios git\parciallaboi\clientemascota.h
+	"cliente.h"
+	"mascota.h"
+
+1590681952 c:\users\leon\desktop\programacion & labo i\repositorios git\parciallaboi\mascota.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1590680942 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciallaboi\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clienteMascota.h"
+
+1590681952 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciallaboi\mascota.c
+	"mascota.h"
+
+1591711268 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\cliente.c
+	"cliente.h"
+
+1591711268 c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\cliente.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validar.h"
+
+1591714414 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\clientemascota.c
+	"clienteMascota.h"
+
+1591706957 c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\clientemascota.h
+	"cliente.h"
+	"mascota.h"
+	"validar.h"
+
+1591706957 c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\mascota.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+
+1591708336 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clienteMascota.h"
+
+1591706957 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\mascota.c
+	"mascota.h"
+
+1591706957 c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\validar.h
+
+1591706957 source:c:\users\leon\desktop\programacion & labo i\parciales\parcial i laboratorio\validar.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+
+1591706957 c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\validar.h
+
+1591706957 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parcial i laboratorio\validar.c
+	<stdio.h>
+	<stdlib.h>
+	"validar.h"
+
