@@ -17,5 +17,15 @@ ePost* constructorPorDefectoPost();
 
 ePost* constructorParametrizadoPost(char* ID_MENSAJE, char* ID_USUARIO, char* POPULARIDAD, char* MENSAJE);
 
-void leerPost(LinkedList* listaDePosts);
+eUsuario* constructorPorDefectoUsuario();
+
+eUsuario* constructorParametrizadoUsuario(char* ID_USUARIO, char* NICK, char* POPULARIDAD);
+
+void cargarDesdePost(LinkedList* listaDePosts);
+
+void cargarDesdeUsuarios(LinkedList* listaDeUsuarios);
+
+void cargarFeed(LinkedList* listaDePosts, LinkedList* listaDeUsuarios);
+
+void cargarDesdeFeed();
 

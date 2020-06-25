@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1593039374 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\main.c
+1593114076 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -7,10 +7,10 @@
 
 1593029730 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\linkedlist.h
 
-1593038517 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\arraylist.h
+1593114076 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\arraylist.h
 	"LinkedList.h"
 
-1593038683 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\arraylist.c
+1593115574 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\arraylist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
