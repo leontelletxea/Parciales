@@ -437,24 +437,18 @@ void* ll_pop(LinkedList* this, int index)
 */
 int ll_contains(LinkedList* this, void* pElement)
 {
-    void* auxElement = NULL;
     int returnAux = -1;
-    int len;
-    int i;
+    int returnIndexOf;
 
     if(this != NULL)
     {
         returnAux = 0;
-        len = ll_len(this);
 
-        for(i=0; i<len; i++)
+        returnIndexOf = ll_indexOf(this, pElement);
+
+        if(returnIndexOf != -1)
         {
-            auxElement = ll_get(this, i);
-            if(pElement == auxElement)
-            {
-                returnAux = 1;
-                break;
-            }
+            returnAux = 1;
         }
     }
 
@@ -604,3 +598,4 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*, void*), int order)
 
     return returnAux;
 }
+
