@@ -293,7 +293,7 @@ int ll_clear(LinkedList* this)
         }
 
         this->pFirstNode = NULL;
-        this->size=0;
+        this->size = 0;
 
         returnAux = 0;
     }
@@ -324,10 +324,9 @@ int ll_deleteLinkedList(LinkedList* this)
             ll_remove(this, i);
         }
 
-        this->pFirstNode = NULL;
-        this->size=0;
-
         free(this);
+        this->size = 0;
+
         returnAux = 0;
     }
 
