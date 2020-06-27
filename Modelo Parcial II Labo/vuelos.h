@@ -1,5 +1,4 @@
 #include "LinkedList.h"
-#include "vuelosPilotos.h"
 
 typedef struct{
     int idVuelo;
@@ -14,29 +13,35 @@ typedef struct{
 
 eVuelo* constructorPorDefectoVuelo();
 
-
-eVuelo* constructorParametrizadoVuelo(char* idPiloto, char* idAvion, char* fecha, char* destino, char* cantPasajeros, char* horaDespegue, char* horaLlegada);
-
+eVuelo* constructorParametrizadoVuelo(char* idVuelo,
+                                      char* idAvion,
+                                      char* idPiloto,
+                                      char* fecha,
+                                      char* destino,
+                                      char* cantPasajeros,
+                                      char* horaDespegue,
+                                      char* horaLlegada);
 
 int vueloSetIdPiloto(eVuelo* this, int idPiloto);
-
+int vueloGetIdPiloto(eVuelo* this, int* idPiloto);
 
 int vueloSetIdVuelo(eVuelo* this, int idVuelo);
-
+int vueloGetIdVuelo(eVuelo* this, int* idVuelo);
 
 int vueloSetIdAvion(eVuelo* this, int idAvion);
-
+int vueloGetIdAvion(eVuelo* this, int* idAvion);
 
 int vueloSetFecha(eVuelo* this, int fecha);
+int vueloGetFecha(eVuelo* this, int* fecha);
 
-
-int vueloSetDestino(eVuelo* this,char* destino);
-
+int vueloSetDestino(eVuelo* this, char* destino);
+int vueloGetDestino(eVuelo* this, char* destino);
 
 int vueloSetCantPasajeros(eVuelo* this, int cantPasajeros);
-
+int vueloGetCantPasajeros(eVuelo* this, int* cantPasajeros);
 
 int vueloSetHoraDespegue(eVuelo* this, int horaDespegue);
-
+int vueloGetHoraDespegue(eVuelo* this, int* horaDespegue);
 
 int vueloSetHoraLlegada(eVuelo* this, int horaLlegada);
+int vueloGetHoraLlegada(eVuelo* this, int* horaLlegada);

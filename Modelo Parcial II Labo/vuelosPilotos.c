@@ -1,22 +1,123 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "vuelos.h"
+#include "pilotos.h"
 #include "vuelosPilotos.h"
+#include "parser.h"
+#include "validaciones.h"
 
-int cargarDesdeTexto(char* path, LinkedList* listaDeVuelos)
+void imprimirVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
 {
-    FILE* pData = NULL;
+    eVuelo* auxVuelo;
+    char auxNombre[51];
+    int idVuelo;
+    int idAvion;
+    int idPiloto;
+    int fecha;
+    char destino[51];
+    int cantPasajeros;
+    int horaDespegue;
+    int horaLlegada;
+    int i;
 
-    pData = fopen(path, "r");
-
-    if(listaDeVuelos!=NULL && pData!=NULL)
+    if(listaDeVuelos != NULL)
     {
-        leerDesdeTexto(pData, listaDeVuelos);
+        if(!ll_isEmpty(listaDeVuelos))
+        {
+            printf(" Vuelo Nro   Avion Nro   Fecha  Destino     Pasajeros   Despegue   Arrivo    Piloto De Vuelo\n\n");
+            for(i=0; i<ll_len(listaDeVuelos); i++)
+            {
+                auxVuelo =(eVuelo*) ll_get(listaDeVuelos, i);
+                if(auxVuelo != NULL)
+                {
+                    vueloGetIdVuelo(auxVuelo, &idVuelo);
+                    vueloGetIdAvion(auxVuelo, &idAvion);
+                    vueloGetIdPiloto(auxVuelo, &idPiloto);
+                    vueloGetFecha(auxVuelo, &fecha);
+                    vueloGetDestino(auxVuelo, destino);
+                    vueloGetCantPasajeros(auxVuelo, &cantPasajeros);
+                    vueloGetHoraDespegue(auxVuelo, &horaDespegue);
+                    vueloGetHoraLlegada(auxVuelo, &horaLlegada);
+
+                    asociarIdPiloto(listaDePilotos, idPiloto, auxNombre);
+                    printf("%6d %10d %10d %10s %10d %10d %10d %20s\n", idVuelo, idAvion, fecha, destino, cantPasajeros, horaDespegue, horaLlegada, auxNombre);
+                }
+            }
+            printf("\n");
+        }
     }
-    return 1;
 }
 
-void menuOpciones(LinkedList* listaDeVuelos)
+void asociarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre)
+{
+    ePiloto* auxPiloto;
+    int auxId;
+    int i;
+
+    for(i=0; i<ll_len(listaDePilotos); i++)
+    {
+        auxPiloto = ll_get(listaDePilotos, i);
+        pilotoGetId(auxPiloto, &auxId);
+        if(auxId == idPiloto)
+        {
+            pilotoGetNombre(auxPiloto, auxNombre);
+        }
+    }
+}
+
+void cantidadDePasajeros(LinkedList* listaDeVuelos)
+{
+    eVuelo* auxVuelo;
+    int auxPasajeros;
+    int cantPasajeros = 0;
+    int i;
+
+    if(listaDeVuelos != NULL)
+    {
+        if(!ll_isEmpty(listaDeVuelos))
+        {
+            for(i=0; i<ll_len(listaDeVuelos); i++)
+            {
+                auxVuelo = ll_get(listaDeVuelos, i);
+                vueloGetCantPasajeros(auxVuelo, &auxPasajeros);
+                cantPasajeros += auxPasajeros;
+            }
+            printf("*El Nro de pasajeros totales es: %d\n\n", cantPasajeros);
+        }
+    }
+
+}
+
+void cantidadDePasajerosIrlanda(LinkedList* listaDeVuelos)
+{
+    eVuelo* auxVuelo;
+    char destino[51];
+    int auxPasajeros;
+    int cantPasajerosIrlanda = 0;
+    int i;
+
+    if(listaDeVuelos != NULL)
+    {
+        if(!ll_isEmpty(listaDeVuelos))
+        {
+            for(i=0; i<ll_len(listaDeVuelos); i++)
+            {
+                auxVuelo = ll_get(listaDeVuelos, i);
+                vueloGetCantPasajeros(auxVuelo, &auxPasajeros);
+                vueloGetDestino(auxVuelo, destino);
+                if(strcmp(destino, "Irlanda")==0)
+                {
+                    cantPasajerosIrlanda += auxPasajeros;
+                }
+            }
+            printf("*El Nro de pasajeros con destino a Irlanda es: %d\n\n", cantPasajerosIrlanda);
+        }
+    }
+
+}
+
+void menuOpciones(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
 {
     int option;
 
@@ -37,16 +138,16 @@ void menuOpciones(LinkedList* listaDeVuelos)
         switch(option)
         {
         case 1:
-            cargarDesdeTexto("Vuelos.csv", listaDeVuelos);
+            cargarDesdeTexto(listaDeVuelos);
             break;
         case 2:
-
+            imprimirVuelos(listaDeVuelos, listaDePilotos);
             break;
         case 3:
-
+            cantidadDePasajeros(listaDeVuelos);
             break;
         case 4:
-
+            cantidadDePasajerosIrlanda(listaDeVuelos);
             break;
         case 5:
 

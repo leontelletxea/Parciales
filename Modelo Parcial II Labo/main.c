@@ -8,10 +8,11 @@
 int main()
 {
     LinkedList* listaDeVuelos = ll_newLinkedList();
+    LinkedList* listaDePilotos = ll_newLinkedList();
 
-    agregarPilotos(listaDeVuelos);
+    cargarPilotos(listaDePilotos);
 
-    menuOpciones(listaDeVuelos);
+    menuOpciones(listaDeVuelos, listaDePilotos);
 
 
     return 0;

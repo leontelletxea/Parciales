@@ -1,12 +1,11 @@
 #include "LinkedList.h"
-#include "vuelosPilotos.h"
 
 typedef struct{
     int idPiloto;
     char nombre[51];
 }ePiloto;
 
-void agregarPilotos(LinkedList* listaDeVuelos);
+void cargarPilotos(LinkedList* listaDeVuelos);
 
 ePiloto* constructorPorDefectoPiloto();
 
@@ -16,4 +15,7 @@ int pilotoSetNombre(ePiloto* this, char* nombre);
 
 int pilotoSetId(ePiloto* this, int idPiloto);
 
+int pilotoGetNombre(ePiloto* this, char* nombre);
+
+int pilotoGetId(ePiloto* this, int* idPiloto);
 

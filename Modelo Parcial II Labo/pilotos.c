@@ -3,7 +3,7 @@
 #include <string.h>
 #include "pilotos.h"
 
-void agregarPilotos(LinkedList* listaDeVuelos)
+void cargarPilotos(LinkedList* listaDeVuelos)
 {
     ePiloto* auxPiloto;
 
@@ -51,6 +51,16 @@ int pilotoSetNombre(ePiloto* this, char* nombre)
     }
     return ret;
 }
+int pilotoGetNombre(ePiloto* this, char* nombre)
+{
+    int ret = 0;
+    if(this!=NULL)
+    {
+        strcpy(nombre, this->nombre);
+        ret = 1;
+    }
+    return ret;
+}
 
 int pilotoSetId(ePiloto* this, int idPiloto)
 {
@@ -58,6 +68,16 @@ int pilotoSetId(ePiloto* this, int idPiloto)
     if(this!=NULL && idPiloto > 0)
     {
         this->idPiloto = idPiloto;
+        ret = 1;
+    }
+    return ret;
+}
+int pilotoGetId(ePiloto* this, int* idPiloto)
+{
+    int ret = 0;
+    if(this!=NULL && idPiloto > 0)
+    {
+        *idPiloto = this->idPiloto;
         ret = 1;
     }
     return ret;

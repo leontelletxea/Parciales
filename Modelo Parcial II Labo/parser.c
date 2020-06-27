@@ -2,6 +2,29 @@
 #include <stdlib.h>
 #include <string.h>
 #include "parser.h"
+#include "vuelos.h"
+
+int cargarDesdeTexto(LinkedList* listaDeVuelos)
+{
+    FILE* pData = NULL;
+    //int ret;
+    char path[51] = "Vuelos.csv";
+
+    /*do
+    {
+        ret = getWord(path, "*Ingrese el nombre del archivo desde el cual desea cargar los datos: ");
+    }while(ret == -1);
+    system("cls");*/
+
+    pData = fopen(path, "r");
+
+    if(listaDeVuelos!=NULL && pData!=NULL)
+    {
+        leerDesdeTexto(pData, listaDeVuelos);
+    }
+    return 1;
+}
+
 
 int leerDesdeTexto(FILE* pFile, LinkedList* listaDeVuelos)
 {
@@ -9,6 +32,7 @@ int leerDesdeTexto(FILE* pFile, LinkedList* listaDeVuelos)
     char titulos[100];
     char idVuelo[51];
     char idAvion[51];
+    char idPiloto[51];
     char fecha[51];
     char destino[51];
     char cantPasajeros[51];
@@ -25,8 +49,8 @@ int leerDesdeTexto(FILE* pFile, LinkedList* listaDeVuelos)
                 fscanf(pFile, "%[^\n]\n", titulos);
                 flag = 1;
             }
-            fscanf(pFile, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n", idVuelo, idAvion, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
-            auxVuelo = constructorParametrizadoVuelo(idVuelo, idAvion, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
+            fscanf(pFile, "%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n", idVuelo, idAvion, idPiloto, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
+            auxVuelo = constructorParametrizadoVuelo(idVuelo, idAvion, idPiloto, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
             ll_add(listaDeVuelos, auxVuelo);
         }
         printf("*Se cargaron los datos desde el archivo vuelos.csv (Modo Texto)\n\n");
