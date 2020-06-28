@@ -3,22 +3,22 @@
 #include <string.h>
 #include "pilotos.h"
 
-void cargarPilotos(LinkedList* listaDeVuelos)
+void cargarPilotos(LinkedList* listaDePilotos)
 {
     ePiloto* auxPiloto;
 
-    if(listaDeVuelos != NULL)
+    if(listaDePilotos != NULL)
     {
         auxPiloto = constructorParametrizadoPiloto(1, "Alex Lifeson");
-        ll_add(listaDeVuelos, auxPiloto);
+        ll_add(listaDePilotos, auxPiloto);
         auxPiloto = constructorParametrizadoPiloto(2, "Richard Bach");
-        ll_add(listaDeVuelos, auxPiloto);
+        ll_add(listaDePilotos, auxPiloto);
         auxPiloto = constructorParametrizadoPiloto(3, "John Kerry");
-        ll_add(listaDeVuelos, auxPiloto);
+        ll_add(listaDePilotos, auxPiloto);
         auxPiloto = constructorParametrizadoPiloto(4, "Erwin Rommel");
-        ll_add(listaDeVuelos, auxPiloto);
+        ll_add(listaDePilotos, auxPiloto);
         auxPiloto = constructorParametrizadoPiloto(5, "Stephen Coonts");
-        ll_add(listaDeVuelos, auxPiloto);
+        ll_add(listaDePilotos, auxPiloto);
     }
 }
 

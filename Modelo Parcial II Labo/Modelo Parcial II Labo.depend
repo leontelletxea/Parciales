@@ -7,7 +7,7 @@
 
 1593268228 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\linkedlist.h
 
-1593275660 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelos.c
+1593382127 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -22,7 +22,7 @@
 	<string.h>
 	"validaciones.h"
 
-1593378871 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.c
+1593382127 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -34,7 +34,7 @@
 
 1593268228 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\validaciones.h
 
-1593376641 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\main.c
+1593382127 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\main.c
 	<stdio.h>
 	<stdlib.h>
 	"vuelos.h"
@@ -45,13 +45,13 @@
 1593277563 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\pilotos.h
 	"LinkedList.h"
 
-1593277563 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\pilotos.c
+1593382127 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\pilotos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"pilotos.h"
 
-1593378496 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.h
+1593382127 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.h
 	"LinkedList.h"
 
 1593378750 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\parser.c

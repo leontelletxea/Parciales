@@ -1,6 +1,6 @@
 #include "LinkedList.h"
 
-void menuOpciones(LinkedList* listaDeVuelos, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal, LinkedList* listaDeVuelosSinAlexLifeson);
+void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal, LinkedList* listaDeVuelosSinAlexLifeson);
 
 void imprimirVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
 

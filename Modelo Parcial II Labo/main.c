@@ -7,14 +7,14 @@
 
 int main()
 {
-    LinkedList* listaDeVuelos = ll_newLinkedList();
+    LinkedList* listaDeVuelosOriginal = ll_newLinkedList();
     LinkedList* listaDeVuelosPortugal = ll_newLinkedList();
     LinkedList* listaDeVuelosSinAlexLifeson = ll_newLinkedList();
     LinkedList* listaDePilotos = ll_newLinkedList();
 
     cargarPilotos(listaDePilotos);
 
-    menuOpciones(listaDeVuelos, listaDePilotos, listaDeVuelosPortugal, listaDeVuelosSinAlexLifeson);
+    menuOpciones(listaDeVuelosOriginal, listaDePilotos, listaDeVuelosPortugal, listaDeVuelosSinAlexLifeson);
 
 
     return 0;

@@ -257,7 +257,7 @@ int generarListaSinAlexLifeson(LinkedList* listaDeVuelos, LinkedList* listaDeVue
     return 1;
 }
 
-void menuOpciones(LinkedList* listaDeVuelos, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal, LinkedList* listaDeVuelosSinAlexLifeson)
+void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal, LinkedList* listaDeVuelosSinAlexLifeson)
 {
     int opcion;
 
@@ -278,26 +278,26 @@ void menuOpciones(LinkedList* listaDeVuelos, LinkedList* listaDePilotos, LinkedL
         switch(opcion)
         {
         case 1:
-            cargarDesdeTexto(listaDeVuelos);
+            cargarDesdeTexto(listaDeVuelosOriginal);
             break;
         case 2:
-            imprimirVuelos(listaDeVuelos, listaDePilotos);
+            imprimirVuelos(listaDeVuelosOriginal, listaDePilotos);
             break;
         case 3:
-            cantidadDePasajeros(listaDeVuelos);
+            cantidadDePasajeros(listaDeVuelosOriginal);
             break;
         case 4:
-            cantidadDePasajerosIrlanda(listaDeVuelos);
+            cantidadDePasajerosIrlanda(listaDeVuelosOriginal);
             break;
         case 5:
-            filtrarVuelosCortos("VuelosCortos.csv", listaDeVuelos, listaDePilotos);
+            filtrarVuelosCortos("VuelosCortos.csv", listaDeVuelosOriginal, listaDePilotos);
             break;
         case 6:
-            generarListaVuelosPortugal(listaDeVuelos, listaDeVuelosPortugal);
+            generarListaVuelosPortugal(listaDeVuelosOriginal, listaDeVuelosPortugal);
             imprimirVuelos(listaDeVuelosPortugal, listaDePilotos);
             break;
         case 7:
-            generarListaSinAlexLifeson(listaDeVuelos, listaDeVuelosSinAlexLifeson, listaDePilotos);
+            generarListaSinAlexLifeson(listaDeVuelosOriginal, listaDeVuelosSinAlexLifeson, listaDePilotos);
             imprimirVuelos(listaDeVuelosSinAlexLifeson, listaDePilotos);
             break;
         case 8:
