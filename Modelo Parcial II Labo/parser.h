@@ -1,5 +1,5 @@
 #include "LinkedList.h"
 
-int leerDesdeTexto(FILE* pFile, LinkedList* listaDeVuelos);
-
 int cargarDesdeTexto(LinkedList* listaDeVuelos);
+
+int generarListaVuelos(FILE* pFile, LinkedList* listaDeVuelos);

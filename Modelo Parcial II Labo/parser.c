@@ -3,30 +3,30 @@
 #include <string.h>
 #include "parser.h"
 #include "vuelos.h"
+#include "validaciones.h"
 
 int cargarDesdeTexto(LinkedList* listaDeVuelos)
 {
     FILE* pData = NULL;
-    //int ret;
-    char path[51] = "Vuelos.csv";
+    int ret;
+    char path[51];
 
-    /*do
+do
     {
         ret = getWord(path, "*Ingrese el nombre del archivo desde el cual desea cargar los datos: ");
     }while(ret == -1);
-    system("cls");*/
+    system("cls");
 
     pData = fopen(path, "r");
 
     if(listaDeVuelos!=NULL && pData!=NULL)
     {
-        leerDesdeTexto(pData, listaDeVuelos);
+        generarListaVuelos(pData, listaDeVuelos);
     }
     return 1;
 }
 
-
-int leerDesdeTexto(FILE* pFile, LinkedList* listaDeVuelos)
+int generarListaVuelos(FILE* pFile, LinkedList* listaDeVuelos)
 {
     eVuelo* auxVuelo;
     char titulos[100];
@@ -53,10 +53,10 @@ int leerDesdeTexto(FILE* pFile, LinkedList* listaDeVuelos)
             auxVuelo = constructorParametrizadoVuelo(idVuelo, idAvion, idPiloto, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
             ll_add(listaDeVuelos, auxVuelo);
         }
-        printf("*Se cargaron los datos desde el archivo vuelos.csv (Modo Texto)\n\n");
+        printf("*Se cargaron los Vuelos desde el archivo vuelos.csv\n\n");
         fclose(pFile);
     }else{
-        printf("*Imposible cargar los datos\n\n");
+        printf("*Imposible cargar los Vuelos\n\n");
     }
     return 1;
 }
