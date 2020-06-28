@@ -11,7 +11,7 @@ int cargarDesdeTexto(LinkedList* listaDeVuelos)
     int ret;
     char path[51];
 
-do
+    do
     {
         ret = getWord(path, "*Ingrese el nombre del archivo desde el cual desea cargar los datos: ");
     }while(ret == -1);
