@@ -627,12 +627,14 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
 {
     LinkedList* newList = ll_newLinkedList();
     void* auxElement;
+    int retFn;
     int i;
 
     for(i=0; i<ll_len(this); i++)
     {
         auxElement = ll_get(this, i);
-        if(fn(auxElement)==1)
+        retFn = fn(auxElement);
+        if(retFn == 1)
         {
             ll_add(newList, auxElement);
         }
