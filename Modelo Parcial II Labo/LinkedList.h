@@ -36,3 +36,6 @@ int ll_containsAll(LinkedList* this, LinkedList* this2);
 LinkedList* ll_subList(LinkedList* this, int from,int to);// La usa ll_clone
 LinkedList* ll_clone(LinkedList* this);
 int ll_sort(LinkedList* this, int (*pFunc)(void*, void*), int order);
+
+int ll_count(LinkedList* this, int (*fn)(void* element));
+LinkedList* filter(LinkedList* this,int (*pFunc)(void*));

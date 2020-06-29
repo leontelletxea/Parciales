@@ -6,9 +6,9 @@ void imprimirVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
 
 void asociarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre);
 
-void cantidadDePasajeros(LinkedList* listaDeVuelos);
+int cantidadDePasajeros(eVuelo* auxVuelo);
 
-void cantidadDePasajerosIrlanda(LinkedList* listaDeVuelos);
+int cantidadDePasajerosIrlanda(eVuelo* auxVuelo);
 
 int filtrarVuelosCortos(char* path, LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
 

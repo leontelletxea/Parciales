@@ -607,3 +607,32 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*, void*), int order)
 
     return returnAux;
 }
+
+int ll_count(LinkedList* this, int (*fn)(void* element))
+{
+    void* auxElement;
+    int counter = 0;
+    int i;
+
+    for(i=0; i<ll_len(this); i++)
+    {
+        auxElement = ll_get(this, i);
+        counter += fn(auxElement);
+    }
+
+    return counter;
+}
+
+LinkedList* filter(LinkedList* this,int (*pFunc)(void*))
+{
+    LinkedList* vehiculo = ll_newLinkedList();
+    for(int i=0;i<ll_len(this);i++)
+    {
+        if(pFunc(ll_get(this,i)))
+        {
+            ll_add(vehiculo,ll_get(this,i));
+        }
+    }
+
+    return vehiculo;
+}

@@ -79,59 +79,31 @@ void asociarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre)
     }
 }
 
-void cantidadDePasajeros(LinkedList* listaDeVuelos)
+int cantidadDePasajeros(eVuelo* auxVuelo)
 {
-    eVuelo* auxVuelo;
-    int auxPasajeros;
     int cantPasajeros = 0;
-    int i;
 
-    if(listaDeVuelos != NULL)
+    if(auxVuelo != NULL)
     {
-        if(!ll_isEmpty(listaDeVuelos))
-        {
-            for(i=0; i<ll_len(listaDeVuelos); i++)
-            {
-                auxVuelo = ll_get(listaDeVuelos, i);
-                vueloGetCantPasajeros(auxVuelo, &auxPasajeros);
-                cantPasajeros += auxPasajeros;
-            }
-            printf("*El Nro de pasajeros totales es: %d\n\n", cantPasajeros);
-        }else if(ll_isEmpty(listaDeVuelos)){
-                printf("*No hay Vuelos cargados, ingrese 1 para cargarlos\n\n");
-            }
+        vueloGetCantPasajeros(auxVuelo, &cantPasajeros);
     }
 
+    return cantPasajeros;
 }
 
-void cantidadDePasajerosIrlanda(LinkedList* listaDeVuelos)
+int cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
 {
-    eVuelo* auxVuelo;
-    char destino[51];
-    int auxPasajeros;
     int cantPasajerosIrlanda = 0;
-    int i;
 
-    if(listaDeVuelos != NULL)
+    if(auxVuelo != NULL)
     {
-        if(!ll_isEmpty(listaDeVuelos))
+        if(strcmp(auxVuelo->destino, "Irlanda")==0)
         {
-            for(i=0; i<ll_len(listaDeVuelos); i++)
-            {
-                auxVuelo = ll_get(listaDeVuelos, i);
-                vueloGetCantPasajeros(auxVuelo, &auxPasajeros);
-                vueloGetDestino(auxVuelo, destino);
-                if(strcmp(destino, "Irlanda")==0)
-                {
-                    cantPasajerosIrlanda += auxPasajeros;
-                }
-            }
-            printf("*El Nro de pasajeros con destino a Irlanda es: %d\n\n", cantPasajerosIrlanda);
-        }else if(ll_isEmpty(listaDeVuelos)){
-                printf("*No hay Vuelos cargados, ingrese 1 para cargarlos\n\n");
-            }
+            vueloGetCantPasajeros(auxVuelo, &cantPasajerosIrlanda);
+        }
     }
 
+    return cantPasajerosIrlanda;
 }
 
 int filtrarVuelosCortos(char* path, LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
@@ -260,6 +232,8 @@ int generarListaSinAlexLifeson(LinkedList* listaDeVuelos, LinkedList* listaDeVue
 void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal, LinkedList* listaDeVuelosSinAlexLifeson)
 {
     int opcion;
+    int cantPasajeros;
+    int cantPasajerosIrlanda;
 
     do
     {
@@ -284,10 +258,12 @@ void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos,
             imprimirVuelos(listaDeVuelosOriginal, listaDePilotos);
             break;
         case 3:
-            cantidadDePasajeros(listaDeVuelosOriginal);
+            cantPasajeros = ll_count(listaDeVuelosOriginal, cantidadDePasajeros);
+            printf("*La cantidad de pasajeros totales es: %d\n\n", cantPasajeros);
             break;
         case 4:
-            cantidadDePasajerosIrlanda(listaDeVuelosOriginal);
+            cantPasajerosIrlanda = ll_count(listaDeVuelosOriginal, cantidadDePasajerosIrlanda);
+            printf("*La cantidad de pasajeros con destino a Irlanda es: %d\n\n", cantPasajerosIrlanda);
             break;
         case 5:
             filtrarVuelosCortos("VuelosCortos.csv", listaDeVuelosOriginal, listaDePilotos);
