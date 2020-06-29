@@ -223,7 +223,7 @@ int generarListaSinAlexLifeson(eVuelo* auxVuelo, LinkedList* listaDePilotos)
 
 void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal)
 {
-    LinkedList* listaDeVuelosSinAlexLifeson;
+    LinkedList* listaDeVuelosSinAlexLifeson = ll_newLinkedList();
     int opcion;
     int cantPasajeros;
     int cantPasajerosIrlanda;
