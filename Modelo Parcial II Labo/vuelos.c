@@ -30,8 +30,7 @@ eVuelo* constructorParametrizadoVuelo(char* idVuelo,
         vueloSetIdAvion(listaDeVuelos, auxInt);
         auxInt = atoi(idPiloto);
         vueloSetIdPiloto(listaDeVuelos, auxInt);
-        auxInt = atoi(fecha);
-        vueloSetFecha(listaDeVuelos, auxInt);
+        vueloSetFecha(listaDeVuelos, fecha);
         vueloSetDestino(listaDeVuelos, destino);
         auxInt = atoi(cantPasajeros);
         vueloSetCantPasajeros(listaDeVuelos, auxInt);
@@ -107,22 +106,22 @@ int vueloGetIdAvion(eVuelo* this, int* idAvion)
     return ret;
 }
 
-int vueloSetFecha(eVuelo* this, int fecha)
+int vueloSetFecha(eVuelo* this, char* fecha)
 {
     int ret = 0;
     if(this!=NULL && fecha > 0)
     {
-        this->fecha = fecha;
+        strcpy(this->fecha, fecha);
         ret = 1;
     }
     return ret;
 }
-int vueloGetFecha(eVuelo* this, int* fecha)
+int vueloGetFecha(eVuelo* this, char* fecha)
 {
     int ret = 0;
     if(this!=NULL && fecha > 0)
     {
-        *fecha = this->fecha;
+        strcpy(fecha, this->fecha);
         ret = 1;
     }
     return ret;

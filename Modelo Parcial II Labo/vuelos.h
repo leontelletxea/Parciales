@@ -4,7 +4,7 @@ typedef struct{
     int idVuelo;
     int idAvion;
     int idPiloto;
-    int fecha;
+    char fecha[51];
     char destino[51];
     int cantPasajeros;
     int horaDespegue;
@@ -31,8 +31,8 @@ int vueloGetIdVuelo(eVuelo* this, int* idVuelo);
 int vueloSetIdAvion(eVuelo* this, int idAvion);
 int vueloGetIdAvion(eVuelo* this, int* idAvion);
 
-int vueloSetFecha(eVuelo* this, int fecha);
-int vueloGetFecha(eVuelo* this, int* fecha);
+int vueloSetFecha(eVuelo* this, char* fecha);
+int vueloGetFecha(eVuelo* this, char* fecha);
 
 int vueloSetDestino(eVuelo* this, char* destino);
 int vueloGetDestino(eVuelo* this, char* destino);

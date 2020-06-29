@@ -14,7 +14,7 @@ void listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
     int idVuelo;
     int idAvion;
     int idPiloto;
-    int fecha;
+    char fecha[51];
     char destino[51];
     int cantPasajeros;
     int horaDespegue;
@@ -25,7 +25,7 @@ void listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
     {
         if(!ll_isEmpty(listaDeVuelos))
         {
-            printf(" VUELOS:\n Vuelo Nro   Avion Nro Piloto Nro  Fecha  Destino      Pasajeros    Despegue    Arrivo    Piloto De Vuelo\n\n");
+            printf(" VUELOS:\n Vuelo Nro   Avion Nro Piloto Nro    Fecha      Destino      Pasajeros  Despegue    Arrivo    Piloto De Vuelo\n\n");
             for(i=0; i<ll_len(listaDeVuelos); i++)
             {
                 auxVuelo =(eVuelo*) ll_get(listaDeVuelos, i);
@@ -34,14 +34,14 @@ void listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
                     vueloGetIdVuelo(auxVuelo, &idVuelo);
                     vueloGetIdAvion(auxVuelo, &idAvion);
                     vueloGetIdPiloto(auxVuelo, &idPiloto);
-                    vueloGetFecha(auxVuelo, &fecha);
+                    vueloGetFecha(auxVuelo, fecha);
                     vueloGetDestino(auxVuelo, destino);
                     vueloGetCantPasajeros(auxVuelo, &cantPasajeros);
                     vueloGetHoraDespegue(auxVuelo, &horaDespegue);
                     vueloGetHoraLlegada(auxVuelo, &horaLlegada);
 
                     buscarIdPiloto(listaDePilotos, idPiloto, auxNombre);
-                    printf("%6d %10d %10d %10d %10s %10d %10d %10d %20s\n", idVuelo,
+                    printf("%6d %10d %10d %15s %10s %10d %10d %10d %20s\n", idVuelo,
                                                                             idAvion,
                                                                             idPiloto,
                                                                             fecha,
@@ -138,7 +138,7 @@ int guardarVuelosCortosEnArchivo(char* path, LinkedList* listaDeVuelos)
     int idVuelo;
     int idAvion;
     int idPiloto;
-    int fecha;
+    char fecha[51];
     char destino[51];
     int cantPasajeros;
     int horaDespegue;
@@ -167,11 +167,11 @@ int guardarVuelosCortosEnArchivo(char* path, LinkedList* listaDeVuelos)
                         vueloGetIdVuelo(auxVuelo, &idVuelo);
                         vueloGetIdAvion(auxVuelo, &idAvion);
                         vueloGetIdPiloto(auxVuelo, &idPiloto);
-                        vueloGetFecha(auxVuelo, &fecha);
+                        vueloGetFecha(auxVuelo, fecha);
                         vueloGetDestino(auxVuelo, destino);
                         vueloGetCantPasajeros(auxVuelo, &cantPasajeros);
 
-                        fprintf(pData, "%d,%d,%d,%d,%s,%d,%d,%d\n", idVuelo,
+                        fprintf(pData, "%d,%d,%d,%s,%s,%d,%d,%d\n", idVuelo,
                                                                     idAvion,
                                                                     idPiloto,
                                                                     fecha,
