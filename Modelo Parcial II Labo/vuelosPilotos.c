@@ -93,11 +93,13 @@ int cantidadDePasajeros(eVuelo* auxVuelo)
 
 int cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
 {
+    char destino[51];
     int cantPasajerosIrlanda = 0;
 
     if(auxVuelo != NULL)
     {
-        if(strcmp(auxVuelo->destino, "Irlanda")==0)
+        vueloGetDestino(auxVuelo, destino);
+        if(strcmp(destino, "Irlanda")==0)
         {
             vueloGetCantPasajeros(auxVuelo, &cantPasajerosIrlanda);
         }
@@ -200,37 +202,28 @@ int generarListaVuelosPortugal(LinkedList* listaDeVuelos, LinkedList* listaDeVue
     return 1;
 }
 
-int generarListaSinAlexLifeson(LinkedList* listaDeVuelos, LinkedList* listaDeVuelosSinAlexLifeson, LinkedList* listaDePilotos)
+int generarListaSinAlexLifeson(eVuelo* auxVuelo, LinkedList* listaDePilotos)
 {
-    eVuelo* auxVuelo;
+    int auxReturn = 0;
+    int idPiloto = 0;
     char auxNombre[51];
-    int asociarId;
-    int i;
 
-    if(listaDeVuelos != NULL && listaDeVuelosSinAlexLifeson != NULL)
+    if(auxVuelo != NULL)
     {
-        if(!ll_isEmpty(listaDeVuelos))
+        vueloGetIdPiloto(auxVuelo, &idPiloto);
+        asociarIdPiloto(listaDePilotos, idPiloto, auxNombre);
+        if(strcmp(auxNombre, "Alex Lifeson")!=0)
         {
-            for(i=0; i<ll_len(listaDeVuelos); i++)
-            {
-                auxVuelo = ll_get(listaDeVuelos, i);
-                vueloGetIdPiloto(auxVuelo, &asociarId);
-                asociarIdPiloto(listaDePilotos, asociarId, auxNombre);
-                if(strcmp(auxNombre, "Alex Lifeson")!=0)
-                {
-                    ll_add(listaDeVuelosSinAlexLifeson, auxVuelo);
-                }
-            }
-            printf("*Se cargaron los Vuelos filtrando a Alex Lifeson a la lista\n\n");
+            auxReturn = 1;
         }
-    }else{
-            printf("*Imposible cargar los Vuelos\n\n");
-        }
-    return 1;
+    }
+
+    return auxReturn;
 }
 
-void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal, LinkedList* listaDeVuelosSinAlexLifeson)
+void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal)
 {
+    LinkedList* listaDeVuelosSinAlexLifeson;
     int opcion;
     int cantPasajeros;
     int cantPasajerosIrlanda;
@@ -273,7 +266,7 @@ void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos,
             imprimirVuelos(listaDeVuelosPortugal, listaDePilotos);
             break;
         case 7:
-            generarListaSinAlexLifeson(listaDeVuelosOriginal, listaDeVuelosSinAlexLifeson, listaDePilotos);
+            listaDeVuelosSinAlexLifeson = ll_filter(listaDeVuelosOriginal, generarListaSinAlexLifeson);
             imprimirVuelos(listaDeVuelosSinAlexLifeson, listaDePilotos);
             break;
         case 8:

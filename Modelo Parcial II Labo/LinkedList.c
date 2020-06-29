@@ -623,16 +623,20 @@ int ll_count(LinkedList* this, int (*fn)(void* element))
     return counter;
 }
 
-LinkedList* filter(LinkedList* this,int (*pFunc)(void*))
+LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
 {
-    LinkedList* vehiculo = ll_newLinkedList();
-    for(int i=0;i<ll_len(this);i++)
+    LinkedList* newList = ll_newLinkedList();
+    void* auxElement;
+    int i;
+
+    for(i=0; i<ll_len(this); i++)
     {
-        if(pFunc(ll_get(this,i)))
+        auxElement = ll_get(this, i);
+        if(fn(auxElement)==1)
         {
-            ll_add(vehiculo,ll_get(this,i));
+            ll_add(newList, auxElement);
         }
     }
 
-    return vehiculo;
+    return newList;
 }
