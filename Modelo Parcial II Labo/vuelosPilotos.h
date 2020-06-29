@@ -14,4 +14,4 @@ int filtrarVuelosCortos(char* path, LinkedList* listaDeVuelos, LinkedList* lista
 
 int generarListaVuelosPortugal(LinkedList* listaDeVuelos, LinkedList* listaDeVuelosPortugal);
 
-int generarListaSinAlexLifeson(eVuelo* auxVuelo, LinkedList* listaDePilotos);
+int generarListaSinAlexLifeson(eVuelo* auxVuelo);

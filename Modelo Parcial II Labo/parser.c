@@ -53,7 +53,7 @@ int generarListaVuelos(FILE* pFile, LinkedList* listaDeVuelos)
             auxVuelo = constructorParametrizadoVuelo(idVuelo, idAvion, idPiloto, fecha, destino, cantPasajeros, horaDespegue, horaLlegada);
             ll_add(listaDeVuelos, auxVuelo);
         }
-        printf("*Se cargaron los Vuelos desde el archivo vuelos.csv\n\n");
+        printf("*Se cargaron los Vuelos desde el archivo .csv\n\n");
         fclose(pFile);
     }else{
         printf("*Imposible cargar los Vuelos\n\n");

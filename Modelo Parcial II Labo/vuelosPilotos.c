@@ -202,17 +202,15 @@ int generarListaVuelosPortugal(LinkedList* listaDeVuelos, LinkedList* listaDeVue
     return 1;
 }
 
-int generarListaSinAlexLifeson(eVuelo* auxVuelo, LinkedList* listaDePilotos)
+int generarListaSinAlexLifeson(eVuelo* auxVuelo)
 {
     int auxReturn = 0;
     int idPiloto = 0;
-    char auxNombre[51];
 
     if(auxVuelo != NULL)
     {
         vueloGetIdPiloto(auxVuelo, &idPiloto);
-        asociarIdPiloto(listaDePilotos, idPiloto, auxNombre);
-        if(strcmp(auxNombre, "Alex Lifeson")!=0)
+        if(idPiloto != 1)
         {
             auxReturn = 1;
         }
@@ -223,7 +221,7 @@ int generarListaSinAlexLifeson(eVuelo* auxVuelo, LinkedList* listaDePilotos)
 
 void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal)
 {
-    LinkedList* listaDeVuelosSinAlexLifeson = ll_newLinkedList();
+    LinkedList* listaDeVuelosSinAlexLifeson;
     int opcion;
     int cantPasajeros;
     int cantPasajerosIrlanda;

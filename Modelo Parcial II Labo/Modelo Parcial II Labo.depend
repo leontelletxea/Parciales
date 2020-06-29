@@ -22,7 +22,7 @@
 	<string.h>
 	"validaciones.h"
 
-1593395873 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.c
+1593399481 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -51,10 +51,10 @@
 	<string.h>
 	"pilotos.h"
 
-1593394159 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.h
+1593399481 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.h
 	"LinkedList.h"
 
-1593382529 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\parser.c
+1593399700 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\parser.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
