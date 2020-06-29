@@ -1,6 +1,6 @@
 #include "LinkedList.h"
 
-void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal);
+void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos);
 
 void imprimirVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
 
@@ -12,6 +12,6 @@ int cantidadDePasajerosIrlanda(eVuelo* auxVuelo);
 
 int filtrarVuelosCortos(char* path, LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
 
-int generarListaVuelosPortugal(LinkedList* listaDeVuelos, LinkedList* listaDeVuelosPortugal);
+int generarListaVuelosPortugal(eVuelo* auxVuelo);
 
 int generarListaSinAlexLifeson(eVuelo* auxVuelo);

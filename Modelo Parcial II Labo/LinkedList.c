@@ -108,9 +108,18 @@ static int addNode(LinkedList* this, int nodeIndex, void* pElement)
     {
         newNode = (Node*) malloc (sizeof(Node));
 
-        if(nodeIndex == 0 && ll_len(this)==0)
+        if(nodeIndex == 0)
         {
-            newNode->pNextNode = NULL;
+            if(ll_len(this)==0)
+            {
+                newNode->pNextNode = NULL;
+            }
+            else if(ll_len(this)>0)
+            {
+                nextNode = getNode(this, nodeIndex);
+                newNode->pNextNode = nextNode;
+
+            }
             newNode->pElement = pElement;
             this->pFirstNode = newNode;
             this->size++;
@@ -122,15 +131,6 @@ static int addNode(LinkedList* this, int nodeIndex, void* pElement)
             newNode->pNextNode = prevNode->pNextNode;
             newNode->pElement = pElement;
             prevNode->pNextNode = newNode;
-            this->size++;
-            returnAux = 0;
-        }
-        else if(nodeIndex == 0 && ll_len(this)>0)
-        {
-            nextNode = getNode(this, nodeIndex);
-            newNode->pNextNode = nextNode;
-            newNode->pElement = pElement;
-            this->pFirstNode = newNode;
             this->size++;
             returnAux = 0;
         }

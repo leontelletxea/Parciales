@@ -176,30 +176,21 @@ int filtrarVuelosCortos(char* path, LinkedList* listaDeVuelos, LinkedList* lista
     return 1;
 }
 
-int generarListaVuelosPortugal(LinkedList* listaDeVuelos, LinkedList* listaDeVuelosPortugal)
+int generarListaVuelosPortugal(eVuelo* auxVuelo)
 {
-    eVuelo* auxVuelo;
+    int auxReturn = 0;
     char destino[51];
-    int i;
 
-    if(listaDeVuelos != NULL && listaDeVuelosPortugal != NULL)
+    if(auxVuelo != NULL)
     {
-        if(!ll_isEmpty(listaDeVuelos))
+        vueloGetDestino(auxVuelo, destino);
+        if(strcmp(destino, "Portugal")==0)
         {
-            for(i=0; i<ll_len(listaDeVuelos); i++)
-            {
-                auxVuelo = ll_get(listaDeVuelos, i);
-                vueloGetDestino(auxVuelo, destino);
-                if(strcmp(destino, "Portugal")==0)
-                {
-                    ll_add(listaDeVuelosPortugal, auxVuelo);
-                }
-            }
-            printf("*Se cargaron los Vuelos con destino a Portugal a la lista\n\n");
+            auxReturn = 1;
         }
     }
 
-    return 1;
+    return auxReturn;
 }
 
 int generarListaSinAlexLifeson(eVuelo* auxVuelo)
@@ -219,8 +210,9 @@ int generarListaSinAlexLifeson(eVuelo* auxVuelo)
     return auxReturn;
 }
 
-void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos, LinkedList* listaDeVuelosPortugal)
+void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos)
 {
+    LinkedList* listaDeVuelosPortugal;
     LinkedList* listaDeVuelosSinAlexLifeson;
     int opcion;
     int cantPasajeros;
@@ -260,7 +252,7 @@ void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos,
             filtrarVuelosCortos("VuelosCortos.csv", listaDeVuelosOriginal, listaDePilotos);
             break;
         case 6:
-            generarListaVuelosPortugal(listaDeVuelosOriginal, listaDeVuelosPortugal);
+            listaDeVuelosPortugal = ll_filter(listaDeVuelosOriginal, generarListaVuelosPortugal);
             imprimirVuelos(listaDeVuelosPortugal, listaDePilotos);
             break;
         case 7:
