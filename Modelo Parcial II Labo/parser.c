@@ -8,13 +8,13 @@
 int cargarDesdeTexto(LinkedList* listaDeVuelos)
 {
     FILE* pData = NULL;
-    int ret;
+    int auxReturn;
     char path[51];
 
     do
     {
-        ret = getWord(path, "*Ingrese el nombre del archivo desde el cual desea cargar los datos: ");
-    }while(ret == -1);
+        auxReturn = getWord(path, "*Ingrese el nombre del archivo desde el cual desea cargar los datos: ");
+    }while(auxReturn == -1);
     system("cls");
 
     pData = fopen(path, "r");

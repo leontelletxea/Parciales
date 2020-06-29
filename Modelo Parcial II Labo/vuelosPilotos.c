@@ -119,6 +119,7 @@ int vuelosCortos(eVuelo* auxVuelo)
     {
         vueloGetHoraDespegue(auxVuelo, &horaDespegue);
         vueloGetHoraLlegada(auxVuelo, &horaLlegada);
+
         duracion = horaLlegada - horaDespegue;
         if(duracion < 3)
         {
@@ -142,19 +143,17 @@ int guardarVuelosCortosEnArchivo(char* path, LinkedList* listaDeVuelos)
     int cantPasajeros;
     int horaDespegue;
     int horaLlegada;
-    int size = 0;
     int i;
 
     if(listaDeVuelosCortos != NULL)
     {
         if(!ll_isEmpty(listaDeVuelosCortos))
         {
-            size = ll_len(listaDeVuelosCortos);
 
             pData = fopen(path, "w");
             if(pData!=NULL)
             {
-                for(i=0; i<size; i++)
+                for(i=0; i<ll_len(listaDeVuelosCortos); i++)
                 {
                     if(i == 0)
                     {
