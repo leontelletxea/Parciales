@@ -2,15 +2,17 @@
 
 void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos);
 
-void imprimirVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
+void listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
 
-void asociarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre);
+void buscarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre);
 
 int cantidadDePasajeros(eVuelo* auxVuelo);
 
 int cantidadDePasajerosIrlanda(eVuelo* auxVuelo);
 
-int filtrarVuelosCortos(char* path, LinkedList* listaDeVuelos, LinkedList* listaDePilotos);
+int vuelosCortos(eVuelo* auxVuelo);
+
+int guardarVuelosCortosEnArchivo(char* path, LinkedList* listaDeVuelos);
 
 int generarListaVuelosPortugal(eVuelo* auxVuelo);
 
