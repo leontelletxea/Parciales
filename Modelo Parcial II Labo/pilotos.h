@@ -5,7 +5,7 @@ typedef struct{
     char nombre[51];
 }ePiloto;
 
-void cargarPilotos(LinkedList* listaDeVuelos);
+void harcodearPilotos(LinkedList* listaDeVuelos);
 
 ePiloto* constructorPorDefectoPiloto();
 

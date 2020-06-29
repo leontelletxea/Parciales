@@ -10,7 +10,7 @@ int main()
     LinkedList* listaDeVuelosOriginal = ll_newLinkedList();
     LinkedList* listaDePilotos = ll_newLinkedList();
 
-    cargarPilotos(listaDePilotos);
+    harcodearPilotos(listaDePilotos);
 
     menuOpciones(listaDeVuelosOriginal, listaDePilotos);
 

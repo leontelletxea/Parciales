@@ -3,7 +3,7 @@
 #include <string.h>
 #include "pilotos.h"
 
-void cargarPilotos(LinkedList* listaDePilotos)
+void harcodearPilotos(LinkedList* listaDePilotos)
 {
     ePiloto* auxPiloto;
 
