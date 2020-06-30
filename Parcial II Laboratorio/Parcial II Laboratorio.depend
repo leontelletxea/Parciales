@@ -215,3 +215,72 @@
 	"parser.h"
 	"validaciones.h"
 
+1593527721 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"vuelos.h"
+	"pilotos.h"
+	"controller.h"
+	"parser.h"
+	"validaciones.h"
+
+1593464312 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\vuelos.h
+	"LinkedList.h"
+
+1593519483 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\linkedlist.h
+
+1593486775 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\pilotos.h
+	"LinkedList.h"
+
+1593527590 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\controller.h
+	"LinkedList.h"
+
+1593486405 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\parser.h
+	"LinkedList.h"
+
+1593268228 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\validaciones.h
+
+1593527920 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1593514987 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"vuelos.h"
+	"pilotos.h"
+	"controller.h"
+	"parser.h"
+	"LinkedList.h"
+
+1593523907 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"pilotos.h"
+	"vuelos.h"
+	"controller.h"
+	"parser.h"
+	"validaciones.h"
+
+1593486775 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\pilotos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"pilotos.h"
+
+1593268228 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1593464351 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\vuelos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"vuelos.h"
+
