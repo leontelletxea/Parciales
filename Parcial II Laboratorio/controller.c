@@ -180,11 +180,12 @@ int Controller_vuelosCortos(eVuelo* auxVuelo)
 int Controller_criterioListaVuelosPortugal(eVuelo* auxVuelo, char* destino)
 {
     int auxReturn = 0;
+    char auxDestino[51];
 
     if(auxVuelo != NULL)
     {
-        vueloGetDestino(auxVuelo, destino);
-        if(strcmp(destino, "Portugal")==0)
+        vueloGetDestino(auxVuelo, auxDestino);
+        if(strcmp(auxDestino, destino)==0)
         {
             auxReturn = 1;
         }
@@ -196,7 +197,6 @@ int Controller_criterioListaVuelosPortugal(eVuelo* auxVuelo, char* destino)
 LinkedList* Controller_listaDeVuelosPortugal(LinkedList* listaDeVuelos)
 {
     char destino[51]= "Portugal";
-
     LinkedList* auxList = ll_filter_parametro(listaDeVuelos, Controller_criterioListaVuelosPortugal, destino);
 
     return auxList;
