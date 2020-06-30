@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1593436434 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\linkedlist.c
+1593519401 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\linkedlist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"LinkedList.h"
 
-1593394304 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\linkedlist.h
+1593519483 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\linkedlist.h
 
 1593464351 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelos.c
 	<stdio.h>
@@ -34,18 +34,19 @@
 
 1593268228 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\validaciones.h
 
-1593470488 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\main.c
+1593514987 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\main.c
 	<stdio.h>
 	<stdlib.h>
 	"vuelos.h"
 	"pilotos.h"
-	"vuelosPilotos.h"
+	"controller.h"
+	"parser.h"
 	"LinkedList.h"
 
-1593470488 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\pilotos.h
+1593486775 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\pilotos.h
 	"LinkedList.h"
 
-1593470488 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\pilotos.c
+1593486775 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\pilotos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -54,15 +55,17 @@
 1593438622 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\vuelospilotos.h
 	"LinkedList.h"
 
-1593461339 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\parser.c
+1593487216 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\parser.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	"parser.h"
+	"pilotos.h"
 	"vuelos.h"
+	"controller.h"
+	"parser.h"
 	"validaciones.h"
 
-1593378225 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\parser.h
+1593486405 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\parser.h
 	"LinkedList.h"
 
 1593268228 source:c:\users\leon\downloads\parciales-master\modelo parcial ii labo\linkedlist.c
@@ -190,6 +193,19 @@
 	"LinkedList.h"
 
 1593520680 source:c:\users\leon\documents\modelo parcial ii labo\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"vuelos.h"
+	"pilotos.h"
+	"controller.h"
+	"parser.h"
+	"validaciones.h"
+
+1593521906 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\controller.h
+	"LinkedList.h"
+
+1593521942 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\modelo parcial ii labo\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
