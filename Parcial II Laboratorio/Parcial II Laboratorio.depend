@@ -215,7 +215,7 @@
 	"parser.h"
 	"validaciones.h"
 
-1593527721 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\controller.c
+1593528741 source:c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -233,7 +233,7 @@
 1593486775 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\pilotos.h
 	"LinkedList.h"
 
-1593527590 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\controller.h
+1593528666 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\controller.h
 	"LinkedList.h"
 
 1593486405 c:\users\leon\desktop\programacion & labo i\repositorios git\parciales\parcial ii laboratorio\parser.h

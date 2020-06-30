@@ -219,7 +219,7 @@ int Controller_generarListaSinAlexLifeson(eVuelo* auxVuelo)
     return auxReturn;
 }
 
-LinkedList* Controller_listarPilotos(LinkedList* listaDePilotos)
+LinkedList* Controller_pedirNombre(LinkedList* listaDePilotos)
 {
     LinkedList* auxList;
     char auxNombre[51];
@@ -227,21 +227,21 @@ LinkedList* Controller_listarPilotos(LinkedList* listaDePilotos)
     if(listaDePilotos != NULL)
     {
         printf("Lista de pilotos Completa:\n");
-        listarPilotos(listaDePilotos);
+        Controller_listarPilotos(listaDePilotos);
 
         getWord(auxNombre, "Ingrese el nombre de usuario que desea filtrar: ");
         auxList = ll_filter_parametro(listaDePilotos, Controller_filtrarPilotoPorNombre, auxNombre);
         system("cls");
 
         printf("Lista de pilotos Filtrada:\n");
-        listarPilotos(auxList);
+        Controller_listarPilotos(auxList);
         printf("\n");
     }
 
     return auxList;
 }
 
-void listarPilotos(LinkedList* listaDePilotos)
+void Controller_listarPilotos(LinkedList* listaDePilotos)
 {
     ePiloto* auxPiloto;
     char nombre[51];
@@ -323,7 +323,7 @@ void Controller_menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* list
             Controller_listarVuelos(listaDeVuelosAux, listaDePilotos);
             break;
         case 8:
-            Controller_listarPilotos(listaDePilotos);
+            Controller_pedirNombre(listaDePilotos);
             break;
         }
         }while(opcion!=9);

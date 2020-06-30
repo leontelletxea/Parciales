@@ -26,10 +26,10 @@ int Controller_generarListaPilotos(FILE* pFile, LinkedList* listaDePilotos);
 
 void Controller_menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos);
 
-LinkedList* Controller_listarPilotos(LinkedList* listaDePilotos);
+LinkedList* Controller_pedirNombre(LinkedList* listaDePilotos);
 
 int Controller_filtrarPilotoPorNombre(ePiloto* auxPiloto, char* nombre);
 
-void listarPilotos(LinkedList* listaDePilotos);
+void Controller_listarPilotos(LinkedList* listaDePilotos);
 
 LinkedList* Controller_listaDeVuelosPortugal(LinkedList* listaDeVuelos);
