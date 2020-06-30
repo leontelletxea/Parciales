@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include "vuelos.h"
 #include "pilotos.h"
-#include "vuelosPilotos.h"
+#include "controller.h"
+#include "parser.h"
 #include "LinkedList.h"
 
 int main()
@@ -10,10 +11,9 @@ int main()
     LinkedList* listaDeVuelosOriginal = ll_newLinkedList();
     LinkedList* listaDePilotos = ll_newLinkedList();
 
-    harcodearPilotos(listaDePilotos);
+    Controller_cargarDesdeTextoPilotos(listaDePilotos);
 
-    menuOpciones(listaDeVuelosOriginal, listaDePilotos);
-
+    Controller_menuOpciones(listaDeVuelosOriginal, listaDePilotos);
 
     return 0;
 }

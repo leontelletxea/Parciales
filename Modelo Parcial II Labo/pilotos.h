@@ -5,11 +5,9 @@ typedef struct{
     char nombre[51];
 }ePiloto;
 
-void harcodearPilotos(LinkedList* listaDeVuelos);
-
 ePiloto* constructorPorDefectoPiloto();
 
-ePiloto* constructorParametrizadoPiloto(int idPiloto, char* nombre);
+ePiloto* constructorParametrizadoPiloto(char* idPiloto, char* nombre);
 
 int pilotoSetNombre(ePiloto* this, char* nombre);
 

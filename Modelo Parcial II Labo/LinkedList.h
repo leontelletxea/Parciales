@@ -39,3 +39,4 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*, void*), int order);
 
 int ll_count(LinkedList* this, int (*fn)(void* element));
 LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element));
+LinkedList* ll_filter_parametro(LinkedList* this, int (*fn)(void* element, char* auxChar), char* charAux);

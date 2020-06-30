@@ -3,11 +3,58 @@
 #include <string.h>
 #include "vuelos.h"
 #include "pilotos.h"
-#include "vuelosPilotos.h"
+#include "controller.h"
 #include "parser.h"
 #include "validaciones.h"
 
-void listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
+int Controller_cargarDesdeTextoVuelos(LinkedList* listaDeVuelos)
+{
+    FILE* pData = NULL;
+    int auxReturn;
+    char path[51];
+
+    do
+    {
+        auxReturn = getWord(path, "*Ingrese el nombre del archivo desde el cual desea cargar los datos: ");
+    }while(auxReturn == -1);
+    system("cls");
+
+    pData = fopen(path, "r");
+
+    if(listaDeVuelos!=NULL && pData!=NULL)
+    {
+        Parser_generarListaVuelos(pData, listaDeVuelos);
+    }
+    return 1;
+}
+
+int Controller_guardarEnTexto(LinkedList* listaDeVuelos)
+{
+    FILE* pData = NULL;
+
+    pData = fopen("VuelosCortos.csv", "r");
+
+    if(listaDeVuelos!=NULL && pData!=NULL)
+    {
+        Parser_guardarVuelosCortosEnArchivo(pData, listaDeVuelos);
+    }
+    return 1;
+}
+
+int Controller_cargarDesdeTextoPilotos(LinkedList* listaDePilotos)
+{
+    FILE* pData = NULL;
+
+    pData = fopen("Pilotos.csv", "r");
+
+    if(listaDePilotos!=NULL && pData!=NULL)
+    {
+        Parser_generarListaPilotos(pData, listaDePilotos);
+    }
+    return 1;
+}
+
+void Controller_listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
 {
     eVuelo* auxVuelo;
     char auxNombre[51];
@@ -40,7 +87,7 @@ void listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
                     vueloGetHoraDespegue(auxVuelo, &horaDespegue);
                     vueloGetHoraLlegada(auxVuelo, &horaLlegada);
 
-                    buscarIdPiloto(listaDePilotos, idPiloto, auxNombre);
+                    Controller_buscarIdPiloto(listaDePilotos, idPiloto, auxNombre);
                     printf("%6d %10d %10d %15s %10s %10d %10d %10d %20s\n", idVuelo,
                                                                             idAvion,
                                                                             idPiloto,
@@ -59,7 +106,7 @@ void listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
     }
 }
 
-void buscarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre)
+void Controller_buscarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre)
 {
     ePiloto* auxPiloto;
     int auxId;
@@ -79,7 +126,7 @@ void buscarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre)
     }
 }
 
-int cantidadDePasajeros(eVuelo* auxVuelo)
+int Controller_cantidadDePasajeros(eVuelo* auxVuelo)
 {
     int cantPasajeros = 0;
 
@@ -91,7 +138,7 @@ int cantidadDePasajeros(eVuelo* auxVuelo)
     return cantPasajeros;
 }
 
-int cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
+int Controller_cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
 {
     char destino[51];
     int cantPasajerosIrlanda = 0;
@@ -108,7 +155,7 @@ int cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
     return cantPasajerosIrlanda;
 }
 
-int vuelosCortos(eVuelo* auxVuelo)
+int Controller_vuelosCortos(eVuelo* auxVuelo)
 {
     int returnAux = 0;
     int horaDespegue;
@@ -130,71 +177,7 @@ int vuelosCortos(eVuelo* auxVuelo)
     return returnAux;
 }
 
-int guardarVuelosCortosEnArchivo(char* path, LinkedList* listaDeVuelos)
-{
-    LinkedList* listaDeVuelosCortos = ll_filter(listaDeVuelos, vuelosCortos);
-    eVuelo* auxVuelo;
-    FILE* pData;
-    int idVuelo;
-    int idAvion;
-    int idPiloto;
-    char fecha[51];
-    char destino[51];
-    int cantPasajeros;
-    int horaDespegue;
-    int horaLlegada;
-    int i;
-
-    if(listaDeVuelosCortos != NULL)
-    {
-        if(!ll_isEmpty(listaDeVuelosCortos))
-        {
-
-            pData = fopen(path, "w");
-            if(pData!=NULL)
-            {
-                for(i=0; i<ll_len(listaDeVuelosCortos); i++)
-                {
-                    if(i == 0)
-                    {
-                        fprintf(pData, "idVuelo,idAvion,idPiloto,fecha,destino,cantPasajeros,horaDespegue,horaLlegada\n");
-                    }
-                    auxVuelo =(eVuelo*) ll_get(listaDeVuelosCortos, i);
-                    if(auxVuelo!=NULL)
-                    {
-                        vueloGetHoraDespegue(auxVuelo, &horaDespegue);
-                        vueloGetHoraLlegada(auxVuelo, &horaLlegada);
-                        vueloGetIdVuelo(auxVuelo, &idVuelo);
-                        vueloGetIdAvion(auxVuelo, &idAvion);
-                        vueloGetIdPiloto(auxVuelo, &idPiloto);
-                        vueloGetFecha(auxVuelo, fecha);
-                        vueloGetDestino(auxVuelo, destino);
-                        vueloGetCantPasajeros(auxVuelo, &cantPasajeros);
-
-                        fprintf(pData, "%d,%d,%d,%s,%s,%d,%d,%d\n", idVuelo,
-                                                                    idAvion,
-                                                                    idPiloto,
-                                                                    fecha,
-                                                                    destino,
-                                                                    cantPasajeros,
-                                                                    horaDespegue,
-                                                                    horaLlegada);
-                    }
-                }
-            }
-            printf("*Se guardo la lista correctamente en el archivo VuelosCortos.csv (Modo Texto)\n\n");
-        }else{
-           printf("\n*Imposible cargar el archivo");
-        }
-        fclose(pData);
-    }else if(ll_isEmpty(listaDeVuelos)){
-            printf("*No hay Vuelos cargados, ingrese 1 para cargarlos\n\n");
-        }
-
-    return 1;
-}
-
-int generarListaVuelosPortugal(eVuelo* auxVuelo)
+int Controller_generarListaVuelosPortugal(eVuelo* auxVuelo)
 {
     int auxReturn = 0;
     char destino[51];
@@ -211,7 +194,7 @@ int generarListaVuelosPortugal(eVuelo* auxVuelo)
     return auxReturn;
 }
 
-int generarListaSinAlexLifeson(eVuelo* auxVuelo)
+int Controller_generarListaSinAlexLifeson(eVuelo* auxVuelo)
 {
     int auxReturn = 0;
     int idPiloto = 0;
@@ -228,7 +211,62 @@ int generarListaSinAlexLifeson(eVuelo* auxVuelo)
     return auxReturn;
 }
 
-void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos)
+LinkedList* Controller_listarPilotos(LinkedList* listaDePilotos)
+{
+    LinkedList* auxList;
+    char auxNombre[51];
+
+    if(listaDePilotos != NULL)
+    {
+        printf("Lista de pilotos Completa:\n");
+        listarPilotos(listaDePilotos);
+
+        getWord(auxNombre, "Ingrese el nombre de usuario que desea filtrar: ");
+        auxList = ll_filter_parametro(listaDePilotos, Controller_filtrarPilotoPorNombre, auxNombre);
+        system("cls");
+
+        printf("Lista de pilotos Filtrada:\n");
+        listarPilotos(auxList);
+        printf("\n");
+    }
+
+    return auxList;
+}
+
+void listarPilotos(LinkedList* listaDePilotos)
+{
+    ePiloto* auxPiloto;
+    char nombre[51];
+    int idPiloto;
+    int i;
+
+    for(i=0; i<ll_len(listaDePilotos); i++)
+    {
+        auxPiloto = ll_get(listaDePilotos, i);
+        pilotoGetNombre(auxPiloto, nombre);
+        pilotoGetId(auxPiloto, &idPiloto);
+        printf("%d  %10s\n", idPiloto, nombre);
+    }
+}
+
+int Controller_filtrarPilotoPorNombre(ePiloto* auxPiloto, char* nombre)
+{
+    int auxReturn = 0;
+    char auxNombre[51];
+
+    if(auxPiloto != NULL)
+    {
+        pilotoGetNombre(auxPiloto, auxNombre);
+        if(strcmp(auxNombre, nombre)!=0)
+        {
+            auxReturn = 1;
+        }
+    }
+
+    return auxReturn;
+}
+
+void Controller_menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos)
 {
     LinkedList* listaDeVuelosAux;
     int opcion;
@@ -244,40 +282,42 @@ void menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos)
         printf("5) Filtrar vuelos cortos\n");
         printf("6) Listar vuelos a Portugal\n");
         printf("7) Filtrar a Alex Lifeson\n");
-        printf("8) Salir\n");
+        printf("8) Filtrar vuelos por Nombre\n");
+        printf("9) Salir\n");
         fflush(stdin);
-        opcion = getInt("Ingrese una opcion: ","Error, elija una opcion valida: ",1,8);
+        opcion = getInt("Ingrese una opcion: ","Error, elija una opcion valida: ",1,9);
         system("cls");
         switch(opcion)
         {
         case 1:
-            cargarDesdeTexto(listaDeVuelosOriginal);
+            Controller_cargarDesdeTextoVuelos(listaDeVuelosOriginal);
             break;
         case 2:
-            listarVuelos(listaDeVuelosOriginal, listaDePilotos);
+            Controller_listarVuelos(listaDeVuelosOriginal, listaDePilotos);
             break;
         case 3:
-            cantPasajeros = ll_count(listaDeVuelosOriginal, cantidadDePasajeros);
+            cantPasajeros = ll_count(listaDeVuelosOriginal, Controller_cantidadDePasajeros);
             printf("*La cantidad de pasajeros totales es: %d\n\n", cantPasajeros);
             break;
         case 4:
-            cantPasajeros = ll_count(listaDeVuelosOriginal, cantidadDePasajerosIrlanda);
+            cantPasajeros = ll_count(listaDeVuelosOriginal, Controller_cantidadDePasajerosIrlanda);
             printf("*La cantidad de pasajeros con destino a Irlanda es: %d\n\n", cantPasajeros);
             break;
         case 5:
-            guardarVuelosCortosEnArchivo("VuelosCortos.csv", listaDeVuelosOriginal);
+            Controller_guardarEnTexto(listaDeVuelosOriginal);
             break;
         case 6:
-            listaDeVuelosAux = ll_filter(listaDeVuelosOriginal, generarListaVuelosPortugal);
-            listarVuelos(listaDeVuelosAux, listaDePilotos);
+            listaDeVuelosAux = ll_filter(listaDeVuelosOriginal, Controller_generarListaVuelosPortugal);
+            Controller_listarVuelos(listaDeVuelosAux, listaDePilotos);
             break;
         case 7:
-            listaDeVuelosAux = ll_filter(listaDeVuelosOriginal, generarListaSinAlexLifeson);
-            listarVuelos(listaDeVuelosAux, listaDePilotos);
+            listaDeVuelosAux = ll_filter(listaDeVuelosOriginal, Controller_generarListaSinAlexLifeson);
+            Controller_listarVuelos(listaDeVuelosAux, listaDePilotos);
             break;
         case 8:
+            Controller_listarPilotos(listaDePilotos);
             break;
         }
-        }while(opcion!=8);
+        }while(opcion!=9);
         printf("Saliendo del Menu...\n");
 }

@@ -642,3 +642,23 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
 
     return newList;
 }
+
+LinkedList* ll_filter_parametro(LinkedList* this, int (*fn)(void* element, char* auxChar), char* charAux)
+{
+    LinkedList* newList = ll_newLinkedList();
+    void* auxElement;
+    int retFn;
+    int i;
+
+    for(i=0; i<ll_len(this); i++)
+    {
+        auxElement = ll_get(this, i);
+        retFn = fn(auxElement, charAux);
+        if(retFn == 1)
+        {
+            ll_add(newList, auxElement);
+        }
+    }
+
+    return newList;
+}

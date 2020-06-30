@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="LinkedList.h" />
+		<Unit filename="controller.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="controller.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -54,10 +58,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="vuelos.h" />
-		<Unit filename="vuelosPilotos.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="vuelosPilotos.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
