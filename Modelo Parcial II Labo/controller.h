@@ -18,7 +18,7 @@ int Controller_vuelosCortos(eVuelo* auxVuelo);
 
 int Controller_guardarVuelosCortosEnArchivo(FILE* pFile, LinkedList* listaDeVuelos);
 
-int Controller_generarListaVuelosPortugal(eVuelo* auxVuelo);
+int Controller_criterioListaVuelosPortugal(eVuelo* auxVuelo, char* destino);
 
 int Controller_generarListaSinAlexLifeson(eVuelo* auxVuelo);
 
@@ -31,3 +31,5 @@ LinkedList* Controller_listarPilotos(LinkedList* listaDePilotos);
 int Controller_filtrarPilotoPorNombre(ePiloto* auxPiloto, char* nombre);
 
 void listarPilotos(LinkedList* listaDePilotos);
+
+LinkedList* Controller_listaDeVuelosPortugal(LinkedList* listaDeVuelos);

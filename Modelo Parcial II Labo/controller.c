@@ -177,10 +177,9 @@ int Controller_vuelosCortos(eVuelo* auxVuelo)
     return returnAux;
 }
 
-int Controller_generarListaVuelosPortugal(eVuelo* auxVuelo)
+int Controller_criterioListaVuelosPortugal(eVuelo* auxVuelo, char* destino)
 {
     int auxReturn = 0;
-    char destino[51];
 
     if(auxVuelo != NULL)
     {
@@ -192,6 +191,15 @@ int Controller_generarListaVuelosPortugal(eVuelo* auxVuelo)
     }
 
     return auxReturn;
+}
+
+LinkedList* Controller_listaDeVuelosPortugal(LinkedList* listaDeVuelos)
+{
+    char destino[51]= "Portugal";
+
+    LinkedList* auxList = ll_filter_parametro(listaDeVuelos, Controller_criterioListaVuelosPortugal, destino);
+
+    return auxList;
 }
 
 int Controller_generarListaSinAlexLifeson(eVuelo* auxVuelo)
@@ -307,7 +315,7 @@ void Controller_menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* list
             Controller_guardarEnTexto(listaDeVuelosOriginal);
             break;
         case 6:
-            listaDeVuelosAux = ll_filter(listaDeVuelosOriginal, Controller_generarListaVuelosPortugal);
+            listaDeVuelosAux = Controller_listaDeVuelosPortugal(listaDeVuelosOriginal);
             Controller_listarVuelos(listaDeVuelosAux, listaDePilotos);
             break;
         case 7:
