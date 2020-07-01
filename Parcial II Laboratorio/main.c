@@ -11,9 +11,9 @@ int main()
     LinkedList* listaDeVuelosOriginal = ll_newLinkedList();
     LinkedList* listaDePilotos = ll_newLinkedList();
 
-    Controller_cargarDesdeTextoPilotos(listaDePilotos);
+    Controller_Tellechea_cargarDesdeTextoPilotos(listaDePilotos);
 
-    Controller_menuOpciones(listaDeVuelosOriginal, listaDePilotos);
+    Controller_Tellechea_menuOpciones(listaDeVuelosOriginal, listaDePilotos);
 
     return 0;
 }

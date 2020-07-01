@@ -44,7 +44,7 @@ int Parser_generarListaVuelos(FILE* pFile, LinkedList* listaDeVuelos)
 
 int Parser_guardarVuelosCortosEnArchivo(FILE* pFile, LinkedList* listaDeVuelos)
 {
-    LinkedList* listaDeVuelosCortos = ll_filter(listaDeVuelos, Controller_vuelosCortos);
+    LinkedList* listaDeVuelosCortos = ll_filter(listaDeVuelos, Controller_Tellechea_vuelosCortos);
     eVuelo* auxVuelo;
     int idVuelo;
     int idAvion;

@@ -7,7 +7,7 @@
 #include "parser.h"
 #include "validaciones.h"
 
-int Controller_cargarDesdeTextoVuelos(LinkedList* listaDeVuelos)
+int Controller_Tellechea_cargarDesdeTextoVuelos(LinkedList* listaDeVuelos)
 {
     FILE* pData = NULL;
     int auxReturn;
@@ -28,7 +28,7 @@ int Controller_cargarDesdeTextoVuelos(LinkedList* listaDeVuelos)
     return 1;
 }
 
-int Controller_guardarEnTexto(LinkedList* listaDeVuelos)
+int Controller_Tellechea_guardarEnTexto(LinkedList* listaDeVuelos)
 {
     FILE* pData = NULL;
 
@@ -41,7 +41,7 @@ int Controller_guardarEnTexto(LinkedList* listaDeVuelos)
     return 1;
 }
 
-int Controller_cargarDesdeTextoPilotos(LinkedList* listaDePilotos)
+int Controller_Tellechea_cargarDesdeTextoPilotos(LinkedList* listaDePilotos)
 {
     FILE* pData = NULL;
 
@@ -54,7 +54,7 @@ int Controller_cargarDesdeTextoPilotos(LinkedList* listaDePilotos)
     return 1;
 }
 
-void Controller_listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
+void Controller_Tellechea_listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilotos)
 {
     eVuelo* auxVuelo;
     char auxNombre[51];
@@ -87,7 +87,7 @@ void Controller_listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilot
                     vueloGetHoraDespegue(auxVuelo, &horaDespegue);
                     vueloGetHoraLlegada(auxVuelo, &horaLlegada);
 
-                    Controller_buscarIdPiloto(listaDePilotos, idPiloto, auxNombre);
+                    Controller_Tellechea_buscarIdPiloto(listaDePilotos, idPiloto, auxNombre);
                     printf("%6d %10d %10d %15s %10s %10d %10d %10d %20s\n", idVuelo,
                                                                             idAvion,
                                                                             idPiloto,
@@ -106,7 +106,7 @@ void Controller_listarVuelos(LinkedList* listaDeVuelos, LinkedList* listaDePilot
     }
 }
 
-void Controller_buscarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre)
+void Controller_Tellechea_buscarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* auxNombre)
 {
     ePiloto* auxPiloto;
     int auxId;
@@ -126,7 +126,7 @@ void Controller_buscarIdPiloto(LinkedList* listaDePilotos, int idPiloto, char* a
     }
 }
 
-int Controller_cantidadDePasajeros(eVuelo* auxVuelo)
+int Controller_Tellechea_cantidadDePasajeros(eVuelo* auxVuelo)
 {
     int cantPasajeros = 0;
 
@@ -138,7 +138,7 @@ int Controller_cantidadDePasajeros(eVuelo* auxVuelo)
     return cantPasajeros;
 }
 
-int Controller_cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
+int Controller_Tellechea_cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
 {
     char destino[51];
     int cantPasajerosIrlanda = 0;
@@ -155,7 +155,7 @@ int Controller_cantidadDePasajerosIrlanda(eVuelo* auxVuelo)
     return cantPasajerosIrlanda;
 }
 
-int Controller_vuelosCortos(eVuelo* auxVuelo)
+int Controller_Tellechea_vuelosCortos(eVuelo* auxVuelo)
 {
     int returnAux = 0;
     int horaDespegue;
@@ -177,7 +177,7 @@ int Controller_vuelosCortos(eVuelo* auxVuelo)
     return returnAux;
 }
 
-int Controller_criterioListaVuelosPortugal(eVuelo* auxVuelo, char* destino)
+int Controller_Tellechea_criterioListaVuelosPortugal(eVuelo* auxVuelo, char* destino)
 {
     int auxReturn = 0;
     char auxDestino[51];
@@ -194,15 +194,15 @@ int Controller_criterioListaVuelosPortugal(eVuelo* auxVuelo, char* destino)
     return auxReturn;
 }
 
-LinkedList* Controller_listaDeVuelosPortugal(LinkedList* listaDeVuelos)
+LinkedList* Controller_Tellechea_listaDeVuelosPortugal(LinkedList* listaDeVuelos)
 {
     char destino[51]= "Portugal";
-    LinkedList* auxList = ll_filter_parametro(listaDeVuelos, Controller_criterioListaVuelosPortugal, destino);
+    LinkedList* auxList = ll_filter_parametro(listaDeVuelos, Controller_Tellechea_criterioListaVuelosPortugal, destino);
 
     return auxList;
 }
 
-int Controller_generarListaSinAlexLifeson(eVuelo* auxVuelo)
+int Controller_Tellechea_generarListaSinAlexLifeson(eVuelo* auxVuelo)
 {
     int auxReturn = 0;
     int idPiloto = 0;
@@ -219,7 +219,7 @@ int Controller_generarListaSinAlexLifeson(eVuelo* auxVuelo)
     return auxReturn;
 }
 
-LinkedList* Controller_pedirNombre(LinkedList* listaDePilotos)
+LinkedList* Controller_Tellechea_pedirNombre(LinkedList* listaDePilotos)
 {
     LinkedList* auxList;
     char auxNombre[51];
@@ -227,21 +227,21 @@ LinkedList* Controller_pedirNombre(LinkedList* listaDePilotos)
     if(listaDePilotos != NULL)
     {
         printf("Lista de pilotos Completa:\n");
-        Controller_listarPilotos(listaDePilotos);
+        Controller_Tellechea_listarPilotos(listaDePilotos);
 
         getWord(auxNombre, "Ingrese el nombre de usuario que desea filtrar: ");
-        auxList = ll_filter_parametro(listaDePilotos, Controller_filtrarPilotoPorNombre, auxNombre);
+        auxList = ll_filter_parametro(listaDePilotos, Controller_Tellechea_filtrarPilotoPorNombre, auxNombre);
         system("cls");
 
         printf("Lista de pilotos Filtrada:\n");
-        Controller_listarPilotos(auxList);
+        Controller_Tellechea_listarPilotos(auxList);
         printf("\n");
     }
 
     return auxList;
 }
 
-void Controller_listarPilotos(LinkedList* listaDePilotos)
+void Controller_Tellechea_listarPilotos(LinkedList* listaDePilotos)
 {
     ePiloto* auxPiloto;
     char nombre[51];
@@ -257,7 +257,7 @@ void Controller_listarPilotos(LinkedList* listaDePilotos)
     }
 }
 
-int Controller_filtrarPilotoPorNombre(ePiloto* auxPiloto, char* nombre)
+int Controller_Tellechea_filtrarPilotoPorNombre(ePiloto* auxPiloto, char* nombre)
 {
     int auxReturn = 0;
     char auxNombre[51];
@@ -274,7 +274,7 @@ int Controller_filtrarPilotoPorNombre(ePiloto* auxPiloto, char* nombre)
     return auxReturn;
 }
 
-void Controller_menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos)
+void Controller_Tellechea_menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* listaDePilotos)
 {
     LinkedList* listaDeVuelosAux;
     int opcion;
@@ -298,32 +298,32 @@ void Controller_menuOpciones(LinkedList* listaDeVuelosOriginal, LinkedList* list
         switch(opcion)
         {
         case 1:
-            Controller_cargarDesdeTextoVuelos(listaDeVuelosOriginal);
+            Controller_Tellechea_cargarDesdeTextoVuelos(listaDeVuelosOriginal);
             break;
         case 2:
-            Controller_listarVuelos(listaDeVuelosOriginal, listaDePilotos);
+            Controller_Tellechea_listarVuelos(listaDeVuelosOriginal, listaDePilotos);
             break;
         case 3:
-            cantPasajeros = ll_count(listaDeVuelosOriginal, Controller_cantidadDePasajeros);
+            cantPasajeros = ll_count(listaDeVuelosOriginal, Controller_Tellechea_cantidadDePasajeros);
             printf("*La cantidad de pasajeros totales es: %d\n\n", cantPasajeros);
             break;
         case 4:
-            cantPasajeros = ll_count(listaDeVuelosOriginal, Controller_cantidadDePasajerosIrlanda);
+            cantPasajeros = ll_count(listaDeVuelosOriginal, Controller_Tellechea_cantidadDePasajerosIrlanda);
             printf("*La cantidad de pasajeros con destino a Irlanda es: %d\n\n", cantPasajeros);
             break;
         case 5:
-            Controller_guardarEnTexto(listaDeVuelosOriginal);
+            Controller_Tellechea_guardarEnTexto(listaDeVuelosOriginal);
             break;
         case 6:
-            listaDeVuelosAux = Controller_listaDeVuelosPortugal(listaDeVuelosOriginal);
-            Controller_listarVuelos(listaDeVuelosAux, listaDePilotos);
+            listaDeVuelosAux = Controller_Tellechea_listaDeVuelosPortugal(listaDeVuelosOriginal);
+            Controller_Tellechea_listarVuelos(listaDeVuelosAux, listaDePilotos);
             break;
         case 7:
-            listaDeVuelosAux = ll_filter(listaDeVuelosOriginal, Controller_generarListaSinAlexLifeson);
-            Controller_listarVuelos(listaDeVuelosAux, listaDePilotos);
+            listaDeVuelosAux = ll_filter(listaDeVuelosOriginal, Controller_Tellechea_generarListaSinAlexLifeson);
+            Controller_Tellechea_listarVuelos(listaDeVuelosAux, listaDePilotos);
             break;
         case 8:
-            Controller_pedirNombre(listaDePilotos);
+            Controller_Tellechea_pedirNombre(listaDePilotos);
             break;
         }
         }while(opcion!=9);
