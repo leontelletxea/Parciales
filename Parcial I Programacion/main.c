@@ -25,10 +25,10 @@ int main()
     float nuevoSueldo;
 
     Alumno listaDeAlumnos[T] = {{1, "Leon", 'a', OCUPADO},
-                               {2, "Angel", 'c', OCUPADO},
-                               {3, "Angel", 'b', OCUPADO},
-                               {4, "German", 'd', OCUPADO},
-                               {5, "Predro", 'e', OCUPADO}};;
+                                {2, "Angel", 'c', OCUPADO},
+                                {3, "Angel", 'b', OCUPADO},
+                                {4, "German", 'd', OCUPADO},
+                                {5, "Predro", 'e', OCUPADO}};;
 
     printf("Ingrese el sueldo: $");
     scanf("%f", &sueldo);
@@ -39,7 +39,7 @@ int main()
 
     nuevoSueldo = CalcularSueldoNeto(sueldo, obraSocial, jubilacion);
     printf("\n  Sueldo         Obra Social      Jubilacion       Sueldo Con Descuentos\n");
-    printf("\n $%.1f            %%%d             %%%d                  $%.1f\n", sueldo, obraSocial, jubilacion, nuevoSueldo);
+    printf("\n  $%.1f            %%%d             %%%d                  $%.1f\n", sueldo, obraSocial, jubilacion, nuevoSueldo);
     printf("\n************************************************************************\n");
     printf("************************************************************************\n\n");
 
