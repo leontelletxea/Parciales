@@ -8,7 +8,6 @@ typedef struct
     int idLocalidad;
     int dni;
     char nombre[51];
-    char localidad[51];
 }Persona;;
 
 typedef struct
@@ -19,30 +18,32 @@ typedef struct
 }Localidad;;
 
 void listarPersonas(Persona listaDePersonas[], Localidad listaDeLocalidades[], int size);
-void ordenarPorDobleCriterio(Persona listaDePersonas[], int size);
+void ordenarPorDobleCriterio(Persona listaDePersonas[], Localidad listaDeLocalidades[], int size);
+int criterioDeOrdenamiento(Localidad listaDeLocalidades[], int size, int elemento, int elemento2);
 
 int main()
 {
-    Localidad listaDeLocalidades[T] = {{1, "Tranquilo", 1232},
-                                       {2, "Turbio", 2321},
-                                       {3, "Medio", 4312},
-                                       {4, "Turbio", 2321},
-                                       {5, "Lindo", 4432}};;
+    Localidad listaDeLocalidades[T] = {{1, "Campana", 1243},
+                                       {2, "Pilar", 2321},
+                                       {3, "Avellaneda", 4312},
+                                       {4, "Quilmes", 2321},
+                                       {5, "Buenos", 4432}};;
 
-    Persona listaDePersonas[T] = {{1, 42180273, "Tomas", "Exaltacion"},
-                                  {2, 42180274, "Angel", "Pilar"},
-                                  {3, 42180275, "Angel", "Avellaneda"},
-                                  {4, 42180276, "German", "Quilmes"},
-                                  {5, 42180278, "Octavio", "Buenos Aires"}};;
+    Persona listaDePersonas[T] = {{1, 42180279, "Pedro"},
+                                  {2, 42180274, "Angel"},
+                                  {3, 42180275, "Angel"},
+                                  {4, 42180276, "German"},
+                                  {5, 42180278, "Octavio"}};;
 
     printf("*Lista de Personas por defecto:\n");
     listarPersonas(listaDePersonas, listaDeLocalidades, T);
     printf("\n");
     system("pause");
     system("cls");
-    ordenarPorDobleCriterio(listaDePersonas, T);
+    ordenarPorDobleCriterio(listaDePersonas, listaDeLocalidades, T);
     printf("*Lista de Personas ordenada por doble criterio:\n");
     listarPersonas(listaDePersonas, listaDeLocalidades, T);
+
     return 0;
 }
 
@@ -50,25 +51,23 @@ void listarPersonas(Persona listaDePersonas[], Localidad listaDeLocalidades[], i
 {
     int i, j;
 
-    printf("\n    DNI             Nombre           Localidad            Descripcion                 CP\n");
+    printf("\n   D.N.I            Nombre           Descripcion             Codigo Postal\n");
     for(i=0; i<size; i++)
     {
         for(j=0; j<size; j++)
         {
-            if(listaDeLocalidades[j].id == listaDePersonas[i].idLocalidad)
+            if(listaDePersonas[i].idLocalidad == listaDeLocalidades[j].id)
             {
-                printf("%10d %15s %20s %20s %20d\n", listaDePersonas[i].dni,
-                                                     listaDePersonas[i].nombre,
-                                                     listaDePersonas[i].localidad,
-                                                     listaDeLocalidades[j].descripcion,
-                                                     listaDeLocalidades[j].codigoPostal);
+                printf("%10d %15s %20s %20d\n", listaDePersonas[i].dni,
+                                                listaDePersonas[i].nombre,
+                                                listaDeLocalidades[j].descripcion,
+                                                listaDeLocalidades[j].codigoPostal);
             }
         }
     }
 }
 
-
-void ordenarPorDobleCriterio(Persona listaDePersonas[], int size)
+void ordenarPorDobleCriterio(Persona listaDePersonas[], Localidad listaDeLocalidades[], int size)
 {
     Persona auxPersona;
     int i, j;
@@ -84,7 +83,7 @@ void ordenarPorDobleCriterio(Persona listaDePersonas[], int size)
                 listaDePersonas[j] = auxPersona;
             }else if(strcmp(listaDePersonas[i].nombre, listaDePersonas[j].nombre)==0)
             {
-                if(strcmp(listaDePersonas[i].localidad, listaDePersonas[j].localidad)>0)
+                if(criterioDeOrdenamiento(listaDeLocalidades, size, listaDePersonas[i].idLocalidad, listaDePersonas[j].idLocalidad)==1)
                 {
                     auxPersona = listaDePersonas[i];
                     listaDePersonas[i] = listaDePersonas[j];
@@ -93,6 +92,31 @@ void ordenarPorDobleCriterio(Persona listaDePersonas[], int size)
             }
         }
     }
+}
+
+int criterioDeOrdenamiento(Localidad listaDeLocalidades[], int size, int elemento, int elemento2)
+{
+    int auxReturn = 0;
+    int i, j;
+
+    for(i=0; i<size; i++)
+    {
+        if(listaDeLocalidades[i].id == elemento)
+        {
+            for(j=0; j<size; j++)
+            {
+                if(listaDeLocalidades[j].id == elemento2)
+                {
+                    if(strcmp(listaDeLocalidades[i].descripcion, listaDeLocalidades[j].descripcion)>0)
+                    {
+                       auxReturn = 1;
+                    }
+                }
+            }
+        }
+    }
+
+    return auxReturn;
 }
 
 /** Las funciones, son tecnicas empleadas por el programador, las cuales permiten encapsular problemas grandes en unos mas acotados, para esto se utiliza,
